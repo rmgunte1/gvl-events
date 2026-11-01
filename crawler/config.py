@@ -7,7 +7,7 @@ from datetime import timedelta
 TIMEZONE = "America/New_York"
 LOOKAHEAD = timedelta(days=21)        # how far ahead to show one-off events
 RUN_HOUR_LOCAL = 12                   # only run the full job at noon ET
-APP_URL = "https://YOUR_GITHUB_USERNAME.github.io/gvl-events/"   # update after Pages is live
+APP_URL = "https://rmgunte1.github.io/gvl-events/"   # update after Pages is live
 
 # Cities within ~25 miles of downtown Greenville (Spartanburg intentionally excluded).
 ALLOWED_CITIES = {

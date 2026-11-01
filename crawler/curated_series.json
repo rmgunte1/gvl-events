@@ -1,0 +1,52 @@
+[
+  {
+    "title": "Greenville Run Club (Monday nights)",
+    "recurrence": "Every Monday, 6:45 PM (meets at The Commons / Pangaea Brewing)",
+    "venue": "The Commons",
+    "address": "147 Welborn St, Greenville, SC 29601",
+    "url": "https://www.instagram.com/runclub_gville/",
+    "register_url": "https://www.instagram.com/runclub_gville/",
+    "description": "Social run (300+ people in summer) to Cancer Survivors Park and back, then hangs at the brewery. No signup, just show up. Check Instagram for winter schedule changes.",
+    "category": "social"
+  },
+  {
+    "title": "Running for Brews 5K Social Run (Tuesday nights)",
+    "recurrence": "Every Tuesday, 7:00 PM",
+    "venue": "Southernside Brewing Co.",
+    "address": "25 Delano Dr, Greenville, SC 29601",
+    "url": "https://www.meetup.com/running-for-brews-greenville-5k-beer-running-club/",
+    "register_url": "https://www.meetup.com/running-for-brews-greenville-5k-beer-running-club/",
+    "description": "Free 3-mile run/walk from the brewery, then beers. RSVP on Meetup.",
+    "category": "social"
+  },
+  {
+    "title": "Fleet Feet Pub Run (Thursday nights)",
+    "recurrence": "Every Thursday, 6:00 PM, rotating breweries",
+    "venue": "Rotating brewery (see Fleet Feet)",
+    "address": "Greenville, SC",
+    "url": "https://www.fleetfeet.com/s/greenville/community/pub-run",
+    "register_url": "https://www.fleetfeet.com/s/greenville/community/pub-run",
+    "description": "Free weekly 3.1-mile run or walk starting from a different brewery each week. Check the Fleet Feet page or Facebook group for this week's location.",
+    "category": "social"
+  },
+  {
+    "title": "Southernside Brewing Trivia Night (Wednesdays)",
+    "recurrence": "Every Wednesday, 7:00 PM",
+    "venue": "Southernside Brewing Co.",
+    "address": "25 Delano Dr, Greenville, SC 29601",
+    "url": "https://www.southernsidebrewing.com/",
+    "register_url": "",
+    "description": "Weekly trivia on the patio. Teams of up to 6; show up by 6:45 to grab a table.",
+    "category": "social"
+  },
+  {
+    "title": "Christ Church Young Adults (23-39) - Third Thursdays",
+    "recurrence": "Third Thursday of each month, 5:30 PM",
+    "venue": "The Commons",
+    "address": "147 Welborn St, Greenville, SC 29601",
+    "url": "https://www.ccgsc.org/faith-development/young-adults-23-39",
+    "register_url": "https://www.ccgsc.org/faith-development/young-adults-23-39",
+    "description": "Monthly social for young adults plus quarterly service projects.",
+    "category": "social"
+  }
+]

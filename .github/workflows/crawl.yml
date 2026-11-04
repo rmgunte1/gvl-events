@@ -2,8 +2,7 @@ name: Daily event crawl
 
 on:
   schedule:
-    - cron: "0 16 * * *"
-    - cron: "0 17 * * *"
+       - cron: "*/30 16-23 * * *"
   workflow_dispatch:
 
 jobs:

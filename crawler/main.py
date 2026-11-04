@@ -18,14 +18,20 @@ from normalize import is_excluded, categorize, dedupe, match_existing
 from sources import FETCHERS
 
 
-def noon_guard() -> bool:
+def already_ran_today(store) -> bool:
+    """GitHub's scheduler can fire hours late, so instead of insisting on noon we
+    run on the first firing after noon ET that hasn't already crawled today."""
     if os.environ.get("FORCE") == "1":
-        return True
-    local = datetime.now(tz.gettz(TIMEZONE))
-    if local.hour != RUN_HOUR_LOCAL:
-        print(f"Local time is {local:%H:%M} ET; this job only runs at {RUN_HOUR_LOCAL}:00. Exiting.")
         return False
-    return True
+    local = datetime.now(tz.gettz(TIMEZONE))
+    if local.hour < RUN_HOUR_LOCAL:
+        print(f"Local time is {local:%H:%M} ET; waiting for the noon window. Exiting.")
+        return True
+    last = store.last_run_at()
+    if last and last.astimezone(tz.gettz(TIMEZONE)).date() == local.date():
+        print(f"Already crawled today at {last.astimezone(tz.gettz(TIMEZONE)):%H:%M} ET. Exiting.")
+        return True
+    return False
 
 
 def crawl() -> tuple[List[Event], List[str], dict]:
@@ -54,8 +60,12 @@ def crawl() -> tuple[List[Event], List[str], dict]:
 
 def main() -> int:
     dry = os.environ.get("DRY_RUN") == "1"
-    if not dry and not noon_guard():
-        return 0
+    store = None
+    if not dry:
+        from store import Store
+        store = Store()
+        if already_ran_today(store):
+            return 0
 
     raw, failures, counts = crawl()
     kept, dropped = [], {}
@@ -76,9 +86,7 @@ def main() -> int:
             print("\nFailures:\n  " + "\n  ".join(failures))
         return 0
 
-    from store import Store
     import notify
-    store = Store()
     existing = store.existing()
     events = match_existing(events, existing)
     events = dedupe(events)   # match_existing may have mapped two onto one id

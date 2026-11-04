@@ -89,5 +89,14 @@ class Store:
             d.raise_for_status()
         return len(ids)
 
+    def last_run_at(self):
+        r = requests.get(self._rest("runs"), headers=self.h,
+                         params={"select": "ran_at", "order": "ran_at.desc", "limit": "1"}, timeout=30)
+        r.raise_for_status()
+        rows = r.json()
+        if not rows:
+            return None
+        return datetime.fromisoformat(rows[0]["ran_at"].replace("Z", "+00:00"))
+
     def log_run(self, summary: dict):
         requests.post(self._rest("runs"), headers=self.h, json=summary, timeout=30)
